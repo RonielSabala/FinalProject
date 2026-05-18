@@ -17,26 +17,10 @@ DELETE FROM students;
 DELETE FROM departments;
 
 GO
--- RESEED ALL TABLES WITH IDENTITY
-DBCC CHECKIDENT ('departments', RESEED, 0);
-
-DBCC CHECKIDENT ('students', RESEED, 0);
-
-DBCC CHECKIDENT ('tutors', RESEED, 0);
-
-DBCC CHECKIDENT ('projects', RESEED, 0);
-
-DBCC CHECKIDENT ('project_tutors', RESEED, 0);
-
-DBCC CHECKIDENT ('documents', RESEED, 0);
-
-DBCC CHECKIDENT ('comments', RESEED, 0);
-
-GO
--- INSERT DEPARTMENTS
 SET
 IDENTITY_INSERT departments ON;
 
+-- INSERT DEPARTMENTS
 INSERT INTO
     departments (id, dept_name, faculty_head, email)
 VALUES
@@ -49,36 +33,52 @@ SET
 IDENTITY_INSERT departments OFF;
 
 GO
+SET
+IDENTITY_INSERT students ON;
+
 -- INSERT STUDENTS
 INSERT INTO
-    students (first_name, last_name, email, phone, department_id)
+    students (id, first_name, last_name, email, phone, department_id)
 VALUES
-    ('Ethan', 'Carroll', 'e.carroll@student.univ.edu', '809-112-3344', 1),
-    ('Sophia', 'Brennan', 's.brennan@student.univ.edu', '809-223-4455', 2),
-    ('Marcus', 'Delgado', 'm.delgado@student.univ.edu', '809-334-5566', 1),
-    ('Isabelle', 'Fontaine', 'i.fontaine@student.univ.edu', '809-445-6677', 3),
-    ('Noah', 'Castillo', 'n.castillo@student.univ.edu', '809-556-7788', 4),
-    ('Olivia', 'Harrington', 'o.harrington@student.univ.edu', '809-667-8899', 3),
-    ('Liam', 'Okafor', 'l.okafor@student.univ.edu', '809-778-9900', 2);
+    (1, 'Ethan', 'Carroll', 'e.carroll@student.univ.edu', '809-112-3344', 1),
+    (2, 'Sophia', 'Brennan', 's.brennan@student.univ.edu', '809-223-4455', 2),
+    (3, 'Marcus', 'Delgado', 'm.delgado@student.univ.edu', '809-334-5566', 1),
+    (4, 'Isabelle', 'Fontaine', 'i.fontaine@student.univ.edu', '809-445-6677', 3),
+    (5, 'Noah', 'Castillo', 'n.castillo@student.univ.edu', '809-556-7788', 4),
+    (6, 'Olivia', 'Harrington', 'o.harrington@student.univ.edu', '809-667-8899', 3),
+    (7, 'Liam', 'Okafor', 'l.okafor@student.univ.edu', '809-778-9900', 2);
+
+SET
+IDENTITY_INSERT students OFF;
 
 GO
+SET
+IDENTITY_INSERT tutors ON;
+
 -- INSERT TUTORS
 INSERT INTO
-    tutors (first_name, last_name, email, specialization, department_id)
+    tutors (id, first_name, last_name, email, specialization, department_id)
 VALUES
-    ('Patricia', 'Walsh', 'p.walsh@univ.edu', 'Artificial Intelligence', 1),
-    ('Robert', 'Hines', 'r.hines@univ.edu', 'Robotics & Control Systems', 2),
-    ('Sandra', 'Bloom', 's.bloom@univ.edu', 'Digital Marketing Strategy', 3),
-    ('James', 'Ortega', 'j.ortega@univ.edu', 'Biomedical Signal Processing', 4),
-    ('Diana', 'Mercer', 'd.mercer@univ.edu', 'Software Architecture', 1),
-    ('Kevin', 'Ashworth', 'k.ashworth@univ.edu', 'Supply Chain Management', 3);
+    (1, 'Patricia', 'Walsh', 'p.walsh@univ.edu', 'Artificial Intelligence', 1),
+    (2, 'Robert', 'Hines', 'r.hines@univ.edu', 'Robotics & Control Systems', 2),
+    (3, 'Sandra', 'Bloom', 's.bloom@univ.edu', 'Digital Marketing Strategy', 3),
+    (4, 'James', 'Ortega', 'j.ortega@univ.edu', 'Biomedical Signal Processing', 4),
+    (5, 'Diana', 'Mercer', 'd.mercer@univ.edu', 'Software Architecture', 1),
+    (6, 'Kevin', 'Ashworth', 'k.ashworth@univ.edu', 'Supply Chain Management', 3);
+
+SET
+IDENTITY_INSERT tutors OFF;
 
 GO
+SET
+IDENTITY_INSERT projects ON;
+
 -- INSERT PROJECTS
 INSERT INTO
-    projects (title, project_description, registration_date, project_status, student_id)
+    projects (id, title, project_description, registration_date, project_status, student_id)
 VALUES
     (
+        1,
         'Adaptive Book Recommendation Engine',
         'Design and implementation of a machine learning system that recommends books based on reading history, ratings, and behavioral patterns using collaborative filtering.',
         DATEADD(DAY, -110, GETDATE()),
@@ -86,6 +86,7 @@ VALUES
         1
     ),
     (
+        2,
         'Autonomous Terrain Scout Robot',
         'Mechanical design, sensor integration, and embedded control of a four-wheeled robot capable of mapping and navigating unstructured outdoor terrain.',
         DATEADD(DAY, -80, GETDATE()),
@@ -93,6 +94,7 @@ VALUES
         2
     ),
     (
+        3,
         'Social Media Growth Strategy for SMEs',
         'Development of a data-driven digital marketing plan for small and medium enterprises, covering content strategy, KPI definition, and ROI measurement frameworks.',
         DATEADD(DAY, -60, GETDATE()),
@@ -100,6 +102,7 @@ VALUES
         4
     ),
     (
+        4,
         'Early Disease Detection via Health Data Analysis',
         'Statistical modeling and machine learning pipeline for processing anonymized patient records to identify early indicators of chronic diseases.',
         DATEADD(DAY, -120, GETDATE()),
@@ -107,6 +110,7 @@ VALUES
         3
     ),
     (
+        5,
         'Wearable ECG Signal Classifier',
         'Real-time classification of electrocardiogram signals captured from a wearable device using convolutional neural networks for arrhythmia detection.',
         DATEADD(DAY, -90, GETDATE()),
@@ -114,6 +118,7 @@ VALUES
         5
     ),
     (
+        6,
         'E-Commerce Logistics Optimization',
         'Linear programming and simulation models for optimizing last-mile delivery routes and warehouse allocation for an e-commerce case study.',
         DATEADD(DAY, -45, GETDATE()),
@@ -121,12 +126,16 @@ VALUES
         6
     ),
     (
+        7,
         'Predictive Maintenance for Industrial Equipment',
         'Vibration and temperature sensor fusion model to predict failure windows in industrial machinery, reducing unplanned downtime.',
         DATEADD(DAY, -70, GETDATE()),
         'approved',
         7
     );
+
+SET
+IDENTITY_INSERT projects OFF;
 
 GO
 -- INSERT PROJECT TUTORS
@@ -146,11 +155,15 @@ VALUES
     (7, 2, 'Main Tutor');
 
 GO
+SET
+IDENTITY_INSERT documents ON;
+
 -- INSERT DOCUMENTS
 INSERT INTO
-    documents (doc_name, file_path, upload_date, doc_status, project_id)
+    documents (id, doc_name, file_path, upload_date, doc_status, project_id)
 VALUES
     (
+        1,
         'Project_Proposal_BookEngine.pdf',
         '/docs/proposal_book_engine.pdf',
         DATEADD(DAY, -108, GETDATE()),
@@ -158,6 +171,7 @@ VALUES
         1
     ),
     (
+        2,
         'Literature_Review_BookEngine.pdf',
         '/docs/lit_review_book_engine.pdf',
         DATEADD(DAY, -85, GETDATE()),
@@ -165,6 +179,7 @@ VALUES
         1
     ),
     (
+        3,
         'Progress_Report_ScoutRobot.pdf',
         '/docs/progress_scout_robot.pdf',
         DATEADD(DAY, -50, GETDATE()),
@@ -172,6 +187,7 @@ VALUES
         2
     ),
     (
+        4,
         'Marketing_Plan_SMEs.pdf',
         '/docs/marketing_plan_smes.pdf',
         DATEADD(DAY, -55, GETDATE()),
@@ -179,6 +195,7 @@ VALUES
         3
     ),
     (
+        5,
         'Health_Data_Analysis_Report.docx',
         '/docs/health_data_analysis.docx',
         DATEADD(DAY, -110, GETDATE()),
@@ -186,6 +203,7 @@ VALUES
         4
     ),
     (
+        6,
         'Final_Thesis_HealthAnalysis.pdf',
         '/docs/final_thesis_health_analysis.pdf',
         DATEADD(DAY, -30, GETDATE()),
@@ -193,6 +211,7 @@ VALUES
         4
     ),
     (
+        7,
         'ECG_Classifier_Proposal.pdf',
         '/docs/ecg_classifier_proposal.pdf',
         DATEADD(DAY, -88, GETDATE()),
@@ -200,6 +219,7 @@ VALUES
         5
     ),
     (
+        8,
         'ECG_Model_Evaluation.pdf',
         '/docs/ecg_model_evaluation.pdf',
         DATEADD(DAY, -40, GETDATE()),
@@ -207,6 +227,7 @@ VALUES
         5
     ),
     (
+        9,
         'Logistics_Optimization_Draft.pdf',
         '/docs/logistics_optimization_draft.pdf',
         DATEADD(DAY, -42, GETDATE()),
@@ -214,6 +235,7 @@ VALUES
         6
     ),
     (
+        10,
         'Maintenance_Model_Report.pdf',
         '/docs/maintenance_model_report.pdf',
         DATEADD(DAY, -65, GETDATE()),
@@ -221,70 +243,89 @@ VALUES
         7
     );
 
+SET
+IDENTITY_INSERT documents OFF;
+
 GO
+SET
+IDENTITY_INSERT comments ON;
+
 -- INSERT COMMENTS
 INSERT INTO
-    comments (comment_text, upload_date, document_id, tutor_id)
+    comments (id, comment_text, upload_date, document_id, tutor_id)
 VALUES
     (
+        1,
         'Good problem framing. The motivation section is clear, but the methodology needs more detail on the filtering algorithm you plan to use.',
         DATEADD(DAY, -107, GETDATE()),
         1,
         1
     ),
     (
+        2,
         'Literature coverage is solid. Make sure to include at least two papers from the last two years to reflect the current state of the field.',
         DATEADD(DAY, -83, GETDATE()),
         2,
         5
     ),
     (
+        3,
         'Progress report is well structured. Sensor calibration results are promising. Include error margin data in the next submission.',
         DATEADD(DAY, -49, GETDATE()),
         3,
         2
     ),
     (
+        4,
         'Strong plan overall. The KPI section is particularly well thought out. Minor revision needed on the competitor analysis methodology.',
         DATEADD(DAY, -53, GETDATE()),
         4,
         3
     ),
     (
+        5,
         'The data preprocessing section is incomplete. Feature normalization and handling of missing values must be addressed before resubmission.',
         DATEADD(DAY, -108, GETDATE()),
         5,
         1
     ),
     (
+        6,
         'Excellent final thesis. The results are clearly presented and the conclusions are well supported by the data. Approved for submission.',
         DATEADD(DAY, -28, GETDATE()),
         6,
         4
     ),
     (
+        7,
         'Proposal approved. CNN architecture choice is well justified. Confirm that the training dataset is balanced across arrhythmia classes.',
         DATEADD(DAY, -86, GETDATE()),
         7,
         4
     ),
     (
+        8,
         'Model evaluation looks promising but the confusion matrix is missing from the report. Please add it along with precision and recall per class.',
         DATEADD(DAY, -38, GETDATE()),
         8,
         4
     ),
     (
+        9,
         'The simulation model is a good start. Revise the assumptions section; some constraints are too optimistic for a real-world scenario.',
         DATEADD(DAY, -40, GETDATE()),
         9,
         6
     ),
     (
+        10,
         'Very thorough report. The sensor fusion approach is well documented. Ready for final review.',
         DATEADD(DAY, -63, GETDATE()),
         10,
         2
     );
+
+SET
+IDENTITY_INSERT comments OFF;
 
 GO
