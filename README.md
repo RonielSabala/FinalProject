@@ -59,11 +59,11 @@ Primary entities and relationships:
 
 ### Restore & Build
 
-Restore NuGet packages and build the solution:
+Restore NuGet packages and build the solution from the **repo root**:
 
 ```bash
-dotnet restore
-dotnet build --configuration Debug
+dotnet restore ./src/ThesisHub.sln
+dotnet build ./src/ThesisHub.sln --configuration Debug
 ```
 
 ---
