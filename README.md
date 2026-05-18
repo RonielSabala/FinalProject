@@ -74,6 +74,7 @@ From the **repo root**:
 
 ```bash
 sqlcmd -S .\SQLEXPRESS -i database/creation.sql
+sqlcmd -S .\SQLEXPRESS -i database/insertions.sql
 ```
 
 This creates the required tables and inserts sample data so you can start using the app immediately.
