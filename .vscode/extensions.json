@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "davidanson.vscode-markdownlint",
+    "inferrinizzard.prettier-sql-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "yzhang.markdown-all-in-one"
+  ]
+}

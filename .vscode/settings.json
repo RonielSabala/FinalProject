@@ -1,0 +1,16 @@
+{
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "editor.formatOnSave": true,
+  "cSpell.language": "en",
+  "cSpell.caseSensitive": true,
+  "markdown.extension.toc.levels": "2..3",
+  "markdown.extension.toc.omittedFromToc": {
+    "README.md": ["## Table of Contents"]
+  },
+  "[sql]": {
+    "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode"
+  },
+  "Prettier-SQL.keywordCase": "upper",
+  "Prettier-SQL.expressionWidth": 88
+}
