@@ -9,8 +9,11 @@
     "README.md": ["## Table of Contents"]
   },
   "[sql]": {
-    "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode"
+    "editor.defaultFormatter": "ReneSaarsoo.sql-formatter-vsc"
   },
-  "Prettier-SQL.keywordCase": "upper",
-  "Prettier-SQL.expressionWidth": 88
+  "SQL-Formatter-VSCode.dialect": "transactsql",
+  "SQL-Formatter-VSCode.keywordCase": "upper",
+  "SQL-Formatter-VSCode.expressionWidth": 88,
+  "SQL-Formatter-VSCode.newlineBeforeSemicolon": false,
+  "SQL-Formatter-VSCode.ignoreTabSettings": false
 }

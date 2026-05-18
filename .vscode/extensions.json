@@ -1,7 +1,7 @@
 {
   "recommendations": [
     "davidanson.vscode-markdownlint",
-    "inferrinizzard.prettier-sql-vscode",
+    "ReneSaarsoo.sql-formatter-vsc",
     "streetsidesoftware.code-spell-checker",
     "yzhang.markdown-all-in-one"
   ]
