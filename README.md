@@ -40,7 +40,7 @@ Primary entities and relationships:
 - A `Tutor` can be assigned to many `Theses` and can comment on `Documents`.
 - A `Comment` is attached to a `Document` and authored by a `Tutor`.
 
-> For the full ER diagram, see [`db/diagrams/ER-diagram.pdf`](db/diagrams/ER-diagram.pdf).
+> For the full ER diagram, see [`docs/ER-diagram.pdf`](docs/ER-diagram.pdf).
 
 ---
 
@@ -73,7 +73,7 @@ dotnet build --configuration Debug
 From the **repo root**:
 
 ```bash
-sqlcmd -S .\SQLEXPRESS -i db/scripts/creation.sql
+sqlcmd -S .\SQLEXPRESS -i database/creation.sql
 ```
 
 This creates the required tables and inserts sample data so you can start using the app immediately.
