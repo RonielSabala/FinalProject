@@ -8,9 +8,8 @@ ThesisHub is a web application built with **C#** and **ASP.NET MVC** to register
 
 - [Features](#features)
 - [Architecture \& Data Model](#architecture--data-model)
-- [Installation](#installation)
+- [Quick Start](#quick-start)
   - [Requirements](#requirements)
-  - [Restore \& Build](#restore--build)
   - [Database Setup](#database-setup)
 - [Run Locally](#run-locally)
 - [Contributing](#contributing)
@@ -44,7 +43,7 @@ Primary entities and relationships:
 
 ---
 
-## Installation
+## Quick Start
 
 ### Requirements
 
@@ -54,17 +53,6 @@ Primary entities and relationships:
 | [Visual Studio](https://visualstudio.microsoft.com/es/downloads/)                               | Any recent |
 | [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) (Express or full) | Any recent |
 | [sqlcmd](https://learn.microsoft.com/en-us/sql/tools/sqlcmd/sqlcmd-download-install)            | >= 1.10.0  |
-
----
-
-### Restore & Build
-
-Restore NuGet packages and build the solution from the **repo root**:
-
-```bash
-dotnet restore ./src/ThesisHub.sln
-dotnet build ./src/ThesisHub.sln --configuration Debug
-```
 
 ---
 
