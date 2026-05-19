@@ -28,9 +28,10 @@ ThesisHub is a web application built with **C#** and **ASP.NET MVC** to register
 - Track thesis lifecycle statuses: `in progress`, `under review`, `approved`, `rejected`, and `completed`.
 - Track document statuses: `under review`, `approved`, and `rejected`.
 
-![Projects section](docs/screenshots/projects_section.jpg)
-
-![Documents section](docs/screenshots/documents_section.jpg)
+| Feature        | View                                                   |
+| -------------- | ------------------------------------------------------ |
+| Projects CRUD  | ![Projects CRUD](docs/screenshots/projects_crud.jpg)   |
+| Documents CRUD | ![Documents CRUD](docs/screenshots/documents_crud.jpg) |
 
 ---
 
