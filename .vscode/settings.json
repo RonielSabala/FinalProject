@@ -1,0 +1,19 @@
+{
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "editor.formatOnSave": true,
+  "cSpell.language": "en",
+  "cSpell.caseSensitive": true,
+  "markdown.extension.toc.levels": "2..3",
+  "markdown.extension.toc.omittedFromToc": {
+    "README.md": ["## Table of Contents"]
+  },
+  "[sql]": {
+    "editor.defaultFormatter": "ReneSaarsoo.sql-formatter-vsc"
+  },
+  "SQL-Formatter-VSCode.dialect": "transactsql",
+  "SQL-Formatter-VSCode.keywordCase": "upper",
+  "SQL-Formatter-VSCode.expressionWidth": 88,
+  "SQL-Formatter-VSCode.newlineBeforeSemicolon": false,
+  "SQL-Formatter-VSCode.ignoreTabSettings": false
+}
